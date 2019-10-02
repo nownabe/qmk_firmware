@@ -23,8 +23,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   `    |   1  |   2  |   3  |   4  |   5  | ESC  |           |  \   |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  | Mid  |           |  [   |   Y  |   U  |   I  |   O  |   P  |   =    |
- * |--------+------+------+------+------+------| Click|           |      |------+------+------+------+------+--------|
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  |      |           |  [   |   Y  |   U  |   I  |   O  |   P  |   =    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
  * |--------+------+------+------+------+------|      |           |  ]   |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
@@ -32,24 +32,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |LCtrl | LAlt | LWin | Left | Right|                                       |  Up  | Down | PgUp | PgDn |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
- *                                        |      |      |       |      |        |
+ *                                        | MClk |      |       |      |        |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      |      |       |      |        |      |
- *                                 | Space|      |------|       |------|  BKSP  |Enter |
+ *                                 | Space| BkSp |------|       |------|        |Enter |
  *                                 |      |      | MO(2)|       |MO(2) |        |      |
  *                                 `--------------------'       `----------------------'
  */
 [BASE] = LAYOUT_ergodox(
   // left hand
   KC_GRV,          KC_1,        KC_2,          KC_3,      KC_4,      KC_5,    KC_ESC,
-  KC_TAB,          KC_Q,        KC_W,          KC_E,      KC_R,      KC_T,    KC_BTN3,
+  KC_TAB,          KC_Q,        KC_W,          KC_E,      KC_R,      KC_T,    XXXXXXX,
   KC_LCTRL,        KC_A,        KC_S,          KC_D,      KC_F,      KC_G,
   KC_LSFT,         KC_Z,        KC_X,          KC_C,      KC_V,      KC_B,    XXXXXXX,
   KC_LCTRL,        KC_LALT,     KC_LWIN,       KC_LEFT,   KC_RGHT,
 
-                                                                XXXXXXX, XXXXXXX,
+                                                                KC_BTN3, XXXXXXX,
                                                                          XXXXXXX,
-                                                        KC_SPC, XXXXXXX, MO(1),
+                                                        KC_SPC, KC_BSPC, MO(1),
 
 
   // right hand
@@ -61,18 +61,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   XXXXXXX, XXXXXXX,
   XXXXXXX,
-  MO(1),   KC_BSPC, KC_ENT
+  MO(1),   XXXXXXX, KC_ENT
 ),
 /* Keymap 1: Symbol Layer
  *
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |         |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |      | MsUp |      |      |      |      |           |      |      |      |      |      |      |   F12  |
+ * |         |      | MsUp |      |      |      |      |           |Alt+R |      |C+A+Dn|C+A+Up|      |      |   F12  |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |         |MsLeft|MsDown|MsRght|      |      |------|           |------| Left | Down |  Up  |Right |      |        |
- * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |      |      |      |      |      |      |           |      |ALT+L |ALT+R |      |      |      |        |
+ * |---------+------+------+------+------+------|      |           |Alt+L |------+------+------+------+------+--------|
+ * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |       |      |      |      |      |                                       |      |      |      |      |      |
  *   `-----------------------------------'                                       `----------------------------------'
@@ -98,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
   // right hand
-  XXXXXXX, KC_F6,         KC_F7,         KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  XXXXXXX, XXXXXXX,       XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, KC_F12,
-           KC_LEFT,       KC_DOWN,       KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
-  XXXXXXX, LALT(KC_LEFT), LALT(KC_RGHT), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX,       KC_F6,         KC_F7,         KC_F8,        KC_F9,   KC_F10,  KC_F11,
+  LALT(KC_RGHT), XXXXXXX,       LCA(KC_DOWN),  LCA(KC_UP),   XXXXXXX, XXXXXXX, KC_F12,
+                 KC_LEFT,       KC_DOWN,       KC_UP,        KC_RGHT, XXXXXXX, XXXXXXX,
+  LALT(KC_LEFT), XXXXXXX,       XXXXXXX,       XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
+                                XXXXXXX,       XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
 
   XXXXXXX, XXXXXXX,
   XXXXXXX,
