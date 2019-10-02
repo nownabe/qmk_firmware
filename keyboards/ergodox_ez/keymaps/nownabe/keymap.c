@@ -23,10 +23,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   `    |   1  |   2  |   3  |   4  |   5  | ESC  |           |  \   |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  |      |           |  [   |   Y  |   U  |   I  |   O  |   P  |   =    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  | LClk |           |  [   |   Y  |   U  |   I  |   O  |   P  |   =    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
- * |--------+------+------+------+------+------|      |           |  ]   |------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------| BkSP |           |  ]   |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |LCtrl | LAlt | LWin | Left | Right|                                       |  Up  | Down | PgUp | PgDn |      |
@@ -35,21 +35,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | MClk |      |       |      |        |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      |      |       |      |        |      |
- *                                 | Space| BkSp |------|       |------|        |Enter |
+ *                                 | Space|      |------|       |------|        |Enter |
  *                                 |      |      | MO(2)|       |MO(2) |        |      |
  *                                 `--------------------'       `----------------------'
  */
 [BASE] = LAYOUT_ergodox(
   // left hand
   KC_GRV,          KC_1,        KC_2,          KC_3,      KC_4,      KC_5,    KC_ESC,
-  KC_TAB,          KC_Q,        KC_W,          KC_E,      KC_R,      KC_T,    XXXXXXX,
+  KC_TAB,          KC_Q,        KC_W,          KC_E,      KC_R,      KC_T,    KC_BTN1,
   KC_LCTRL,        KC_A,        KC_S,          KC_D,      KC_F,      KC_G,
-  KC_LSFT,         KC_Z,        KC_X,          KC_C,      KC_V,      KC_B,    XXXXXXX,
+  KC_LSFT,         KC_Z,        KC_X,          KC_C,      KC_V,      KC_B,    KC_BSPC,
   KC_LCTRL,        KC_LALT,     KC_LWIN,       KC_LEFT,   KC_RGHT,
 
                                                                 KC_BTN3, XXXXXXX,
                                                                          XXXXXXX,
-                                                        KC_SPC, KC_BSPC, MO(1),
+                                                        KC_SPC, XXXXXXX, MO(1),
 
 
   // right hand
