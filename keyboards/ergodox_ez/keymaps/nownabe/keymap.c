@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |LCtrl | LAlt | LWin | Left | Right|                                       |  Up  | Down | PgUp | PgDn |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
- *                                        | MClk |      |       |      |        |
+ *                                        | MClk | Enter|       |      |        |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      |      |       |      |        |      |
  *                                 | Space|      |------|       |------|        |Enter |
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT,         KC_Z,        KC_X,          KC_C,      KC_V,      KC_B,    KC_BSPC,
   KC_LCTRL,        KC_LALT,     KC_LWIN,       KC_LEFT,   KC_RGHT,
 
-                                                                KC_BTN3, XXXXXXX,
+                                                                KC_BTN3, KC_ENT,
                                                                          XXXXXXX,
                                                         KC_SPC, XXXXXXX, MO(1),
 
@@ -68,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |         |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |      | MsUp |      |      |      |      |           |Alt+R |      |C+A+Dn|C+A+Up|      |      |   F12  |
- * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |         |      | MsUp |      |      |      |      |           |C + A | Alt+L|Alt+Dn|Alt+Up| Alt+R|      |   F12  |
+ * |---------+------+------+------+------+------|      |           |  Up  |------+------+------+------+------+--------|
  * |         |MsLeft|MsDown|MsRght|      |      |------|           |------| Left | Down |  Up  |Right |      |        |
- * |---------+------+------+------+------+------|      |           |Alt+L |------+------+------+------+------+--------|
- * |         |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |---------+------+------+------+------+------|      |           |C + A |------+------+------+------+------+--------|
+ * |         |      |      |      |      |      |      |           | Down |      |      |      |      |      |        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |       |      |      |      |      |                                       |      |      |      |      |      |
  *   `-----------------------------------'                                       `----------------------------------'
@@ -98,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
   // right hand
-  XXXXXXX,       KC_F6,         KC_F7,         KC_F8,        KC_F9,   KC_F10,  KC_F11,
-  LALT(KC_RGHT), XXXXXXX,       LCA(KC_DOWN),  LCA(KC_UP),   XXXXXXX, XXXXXXX, KC_F12,
-                 KC_LEFT,       KC_DOWN,       KC_UP,        KC_RGHT, XXXXXXX, XXXXXXX,
-  LALT(KC_LEFT), XXXXXXX,       XXXXXXX,       XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
-                                XXXXXXX,       XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX,       KC_F6,         KC_F7,         KC_F8,        KC_F9,         KC_F10,  KC_F11,
+  LCA(KC_UP),    LALT(KC_LEFT), LALT(KC_DOWN), LALT(KC_UP),  LALT(KC_RGHT), XXXXXXX, KC_F12,
+                 KC_LEFT,       KC_DOWN,       KC_UP,        KC_RGHT,       XXXXXXX, XXXXXXX,
+  LCA(KC_DOWN),  XXXXXXX,       XXXXXXX,       XXXXXXX,      XXXXXXX,       XXXXXXX, XXXXXXX,
+                                XXXXXXX,       XXXXXXX,      XXXXXXX,       XXXXXXX, XXXXXXX,
 
   XXXXXXX, XXXXXXX,
   XXXXXXX,
